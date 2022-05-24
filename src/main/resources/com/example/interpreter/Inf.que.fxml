@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.interpreter.Controllers.ControllerMenu">
+    <children>
+        <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="650.0" prefWidth="500.0" style="-fx-background-color: cef0c9;" VBox.vgrow="ALWAYS">
+            <children>
+                <Button fx:id="btnHome" layoutX="199.0" layoutY="593.0" mnemonicParsing="false" onAction="#btnHomeQueClicked" prefHeight="43.0" prefWidth="102.0" style="-fx-background-color: #8fbc8f;" text="назад" />
+                <Label alignment="CENTER" layoutX="81.0" layoutY="106.0" text="Кривая забывания Эббингауза" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="100.0">
+                   <font>
+                      <Font size="24.0" />
+                   </font>
+                </Label>
+                <Label layoutX="24.0" layoutY="181.0" text="Кривая забывания - это кривая, которая наглядно">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <Label layoutX="24.0" layoutY="207.0" text="демонстрирует то, как долго может храниться в">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="24.0" layoutY="234.0" text="памяти однаджды выученная информация.">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="24.0" layoutY="286.0" text="На кривой Эббингауза видно, какую часть прочитанного ">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="24.0" layoutY="312.0" text="человек помнит через разные промежутки времени.">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="24.0" layoutY="356.0" text="В первые часы объем усвоенной информации">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="24.0" layoutY="383.0" text="быстро падает и через 10 часов">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="24.0" layoutY="410.0" text="составляет всего 35% от изученного.">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+         </children>
+    </AnchorPane>
+  </children>
+</VBox>

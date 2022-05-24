@@ -1,0 +1,41 @@
+package com.example.interpreter.Controllers;
+
+import com.example.interpreter.Application;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.SubScene;
+import javafx.scene.layout.VBox;
+
+
+import java.io.IOException;
+import java.util.Scanner;
+
+public class ControllerTable {
+    public VBox root;
+
+    public void btnHomeClicked(ActionEvent actionEvent) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Menu.fxml"));
+        SubScene scene = new SubScene(fxmlLoader.load(), 500, 650);
+        this.root.getChildren().clear();
+        this.root.getChildren().add(scene.getRoot());
+    }
+
+    static class Word{
+        String EnWord;
+        String Transcription;
+        String RuWord;
+
+        Word(String EnWord, String Transcription, String RuWord){
+            this.EnWord = EnWord;
+            this.Transcription = Transcription;
+            this.RuWord = RuWord;
+        }
+        Word(Scanner in){
+            this.EnWord = in.nextLine();
+            this.Transcription = in.nextLine();
+            this.RuWord = in.nextLine();
+        }
+
+    }
+}
+
