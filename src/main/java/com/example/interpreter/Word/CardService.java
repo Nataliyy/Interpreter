@@ -1,6 +1,8 @@
 package com.example.interpreter.Word;
 
 import com.example.interpreter.Word.CardRepository;
+import org.json.JSONArray;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -44,6 +46,7 @@ public class CardService {
         Date d = new Date();
         // c.answers.add
         //d.
+        return c;
     }
 
     public String[] findMovies(String s) {
@@ -72,11 +75,14 @@ public class CardService {
                 JSONObject response = new JSONObject(inline);
 
                 // Здесь в бой вступаем МЫ!
-                JSONArray movies = (JSONArray) response.get("films");
-                for (int i = 0; i < movies.length(); i++) {
-                    System.out.println(movies.getJSONObject(i).getString("nameRu"));
+                JSONArray translation = (JSONArray) response.get("translation");
+                for (int i = 0; i < translation.length(); i++) {
+                    System.out.println(translation.getJSONObject(i).getString("RuWord"));
                 }
-
+                JSONArray text = (JSONArray) response.get("text");
+                for (int i = 0; i < text.length(); i++) {
+                    System.out.println(text.getJSONObject(i).getString("EnWord"));
+                }
             }
 
             conn.disconnect();

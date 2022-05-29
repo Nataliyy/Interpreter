@@ -11,18 +11,17 @@ import org.springframework.context.ConfigurableApplicationContext;
 import java.io.IOException;
 
 @SpringBootApplication
-
 public class Application extends javafx.application.Application {
 
-    //public static CardService cardService;
+    public static CardService cardService;
 
-    //private static ConfigurableApplicationContext context;
+    private static ConfigurableApplicationContext context;
 
     @Override
     public void start(Stage stage) throws IOException {
 
-        //context = SpringApplication.run(Application.class);
-        //cardService = context.getBean(CardService.class);
+        context = SpringApplication.run(Application.class);
+        cardService = context.getBean(CardService.class);
 
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Menu.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 500, 650);

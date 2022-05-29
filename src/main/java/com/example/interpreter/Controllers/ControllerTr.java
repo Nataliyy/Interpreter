@@ -11,11 +11,11 @@ import java.io.IOException;
 public class ControllerTr {
     public VBox root;
 
-    public void btnTrrClicked(ActionEvent actionEvent) {
+    public void btnTraClicked(ActionEvent actionEvent) {
 
     }
 
-    public void btnHomClicked(ActionEvent actionEvent) throws IOException {
+    public void btnHomeClicked(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Menu.fxml"));
         SubScene scene = new SubScene(fxmlLoader.load(), 500, 650);
         this.root.getChildren().clear();

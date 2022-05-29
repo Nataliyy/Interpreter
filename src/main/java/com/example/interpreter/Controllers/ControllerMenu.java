@@ -16,13 +16,6 @@ public class ControllerMenu {
     public VBox root;
 
     @FXML
-    private Label welcomeText;
-
-    @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("памятка");
-    }
-
     public void btnTraClicked(ActionEvent actionEvent) throws IOException { //на переводчик
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Translator.fxml"));
         SubScene scene = new SubScene(fxmlLoader.load(), 500, 650);
