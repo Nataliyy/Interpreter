@@ -20,13 +20,21 @@ public class ControllerTr {
 
     }
 
-    public void btnTrrClicked(ActionEvent actionEvent) {
+    public void btnTrrClicked(ActionEvent actionEvent) { // перевод с рус на англ
+
     }
 
-    public void btnAddWClicked(ActionEvent actionEvent) {
+    public void btnAddWClicked(ActionEvent actionEvent) { // кнопка добавить слово к изучаемым нажата
+
     }
 
-    public void btnChLanClicked(ActionEvent actionEvent) {
+    public void btnChLanClicked(ActionEvent actionEvent) throws IOException { // поменяли языки местами
+        FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Translator2.fxml"));
+        SubScene scene = new SubScene(fxmlLoader.load(), 500, 650);
+        this.root.getChildren().clear();
+        this.root.getChildren().add(scene.getRoot());
+
     }
+
 }
 
