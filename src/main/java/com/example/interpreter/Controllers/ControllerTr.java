@@ -11,9 +11,6 @@ import java.io.IOException;
 public class ControllerTr {
     public VBox root;
 
-    public void btnTraClicked(ActionEvent actionEvent) {
-
-    }
 
     public void btnHomeClicked(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Menu.fxml"));
@@ -21,6 +18,15 @@ public class ControllerTr {
         this.root.getChildren().clear();
         this.root.getChildren().add(scene.getRoot());
 
+    }
+
+    public void btnTrrClicked(ActionEvent actionEvent) {
+    }
+
+    public void btnAddWClicked(ActionEvent actionEvent) {
+    }
+
+    public void btnChLanClicked(ActionEvent actionEvent) {
     }
 }
 
