@@ -24,7 +24,7 @@ public class ControllerTr {
 
     }
 
-    public void btnAddWClicked(ActionEvent actionEvent) { // кнопка добавить слово к изучаемым нажата
+    public void btnAddWClicked(ActionEvent actionEvent) { // кнопка добавить слово к изучаемым
 
     }
 
