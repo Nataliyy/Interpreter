@@ -1,11 +1,12 @@
 package com.example.interpreter.Word;
 
-import com.example.interpreter.Word.CardRepository;
 import org.json.JSONArray;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.OutputStream;
+import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.net.URLEncoder;
@@ -49,16 +50,39 @@ public class CardService {
         return c;
     }
 
-    public String[] findMovies(String s) {
+    public String[] translate(String s) {
 
         try {
 
-            URL url = new URL("https://kinopoiskapiunofficial.tech/api/v2.1/films/search-by-keyword?" +
-                    "keyword=" + URLEncoder.encode(s, StandardCharsets.UTF_8) +
-                    "&page=1");
+            URL url = new URL("https://api.reverso.net/translate/v1/translation");
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestProperty("Accept", "application/json");
-            conn.setRequestProperty("X-API-KEY", "79309bde-6cab-48d6-a717-e633cf5fbc89");
+
+            conn.setRequestProperty("Accept", "*/*");
+            conn.setRequestProperty("Connection", "keep-alive");
+            conn.setRequestProperty("User-Agent", "Firefox 31");
+            conn.setRequestProperty("Content-Type", "application/json");
+
+            conn.setDoOutput(true);
+            conn.setRequestMethod("POST");
+            OutputStream os = conn.getOutputStream();
+            OutputStreamWriter osw = new OutputStreamWriter(os, "UTF-8");
+            osw.write("{\n" +
+                    "  format: 'text',\n" +
+                    "  from: 'rus',\n" +
+                    "  input: '" + s + "',\n" +
+                    "  options: {\n" +
+                    "    contextResults: true,\n" +
+                    "    languageDetection: true,\n" +
+                    "    origin: 'reversomobile',\n" +
+                    "    sentenceSplitter: false,\n" +
+                    "  },\n" +
+                    "  to: 'eng',\n" +
+                    "}");
+            osw.flush();
+            osw.close();
+            os.close();
+
+            conn.connect();
 
             int responsecode = conn.getResponseCode();
 
@@ -74,14 +98,12 @@ public class CardService {
                 scanner.close();
                 JSONObject response = new JSONObject(inline);
 
-                // Здесь в бой вступаем МЫ!
-                JSONArray translation = (JSONArray) response.get("translation");
-                for (int i = 0; i < translation.length(); i++) {
-                    System.out.println(translation.getJSONObject(i).getString("RuWord"));
-                }
-                JSONArray text = (JSONArray) response.get("text");
-                for (int i = 0; i < text.length(); i++) {
-                    System.out.println(text.getJSONObject(i).getString("EnWord"));
+                System.out.println(inline);
+                JSONArray translations = response.getJSONArray("translation");
+
+                for (Object translation:
+                     translations) {
+                    System.out.println(translation);
                 }
             }
 

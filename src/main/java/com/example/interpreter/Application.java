@@ -23,6 +23,8 @@ public class Application extends javafx.application.Application {
         context = SpringApplication.run(Application.class);
         cardService = context.getBean(CardService.class);
 
+        cardService.translate("радость");
+
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Menu.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 500, 650);
         stage.setTitle("My Interpreter!");
