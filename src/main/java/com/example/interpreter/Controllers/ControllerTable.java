@@ -1,13 +1,20 @@
 package com.example.interpreter.Controllers;
 
 import com.example.interpreter.Application;
+import com.example.interpreter.Word.Card;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.SubScene;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
+import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.VBox;
 
 
 import java.io.IOException;
+import java.net.URL;
+import java.util.ResourceBundle;
 import java.util.Scanner;
 
 public class ControllerTable {
@@ -20,19 +27,48 @@ public class ControllerTable {
         this.root.getChildren().add(scene.getRoot());
     }
 
-    static class Word{
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        TableRuWord.setCellValueFactory(
+                new PropertyValueFactory<>("RuWord"));
+        TableEnWord.setCellValueFactory(
+                new PropertyValueFactory<>("EnWord"));
+
+        WTable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
+            if (newSelection != null) {
+                btnDelW.setDisable(false);
+                lastSelectedCard = (Card) newSelection;
+                //WTable.getSelectionModel().clearSelection();
+            } else {
+                btnDelW.setDisable(true);
+            }
+        });
+
+        WTable.getItems().addAll(Application.cardService.getCards());
+        btnDelW.setDisable(true);
+    }
+
+    Card lastSelectedCard = null;
+
+    public void btnDelWClicked(ActionEvent actionEvent) { //нажали кнопку удалить слово
+        if (lastSelectedCard != null) {
+            Application.cardService.removeCard(lastSelectedCard);
+            WTable.getItems().clear();
+            WTable.getItems().addAll(Application.cardService.getCards());
+        }
+    }
+
+    static class Word {
         String EnWord;
-        String Transcription;
         String RuWord;
 
-        Word(String EnWord, String Transcription, String RuWord){
+        Word(String EnWord, String RuWord) {
             this.EnWord = EnWord;
-            this.Transcription = Transcription;
             this.RuWord = RuWord;
         }
-        Word(Scanner in){
+
+        Word(Scanner in) {
             this.EnWord = in.nextLine();
-            this.Transcription = in.nextLine();
             this.RuWord = in.nextLine();
         }
 

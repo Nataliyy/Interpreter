@@ -6,7 +6,7 @@ import javax.persistence.*;
 
 public class Card {
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String EnWord;
@@ -37,8 +37,5 @@ public class Card {
         return RuWord;
     }
 
-    public String getTranscription() {
-        return Transcription;
-    }
 }
 

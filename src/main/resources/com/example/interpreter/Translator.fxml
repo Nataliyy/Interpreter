@@ -34,32 +34,37 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<?import javafx.scene.layout.VBox?>
 <VBox fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.interpreter.Controllers.ControllerTr">
    <children>
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="500.0" style="-fx-background-color: cef0c9;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" >
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="500.0" style="-fx-background-color: cef0c9;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <TextArea fx:id="Ru1" layoutX="20.0" layoutY="64.0" prefHeight="200.0" prefWidth="381.0" promptText="введите слово для перевода" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" />
-      <Label alignment="CENTER" layoutX="100.0" layoutY="22.0" text="переводчик" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="22.0">
+      <TextArea fx:id="Ru1" layoutX="20.0" layoutY="64.0" prefHeight="200.0" prefWidth="381.0" promptText="введите слово для перевода" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0">
+               <font>
+                  <Font name="Bookman Old Style" size="24.0" />
+               </font></TextArea>
+      <Label alignment="CENTER" layoutX="100.0" layoutY="14.0" text="переводчик" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="14.0">
          <font>
-            <Font size="24.0" />
+            <Font name="Bookman Old Style" size="36.0" />
          </font></Label>
-      <Button fx:id="btnTrr" layoutX="400.0" layoutY="284.0" mnemonicParsing="false" onAction="#btnTrrClicked" prefHeight="59.0" prefWidth="83.0" style="-fx-background-color: #8fbc8f;" text="перевести" AnchorPane.leftAnchor="400.0" AnchorPane.rightAnchor="17.0" />
+      <Button fx:id="btnTrr" layoutX="117.0" layoutY="292.0" mnemonicParsing="false" onAction="#btnTrrClicked" prefHeight="30.0" prefWidth="288.0" style="-fx-background-color: #8fbc8f;" text="перевести" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0">
+               <font>
+                  <Font name="Bookman Old Style" size="18.0" />
+               </font></Button>
       <Button fx:id="btnHome" layoutX="154.0" layoutY="659.0" mnemonicParsing="false" onAction="#btnHomeClicked" style="-fx-background-color: #8fbc8f;" text="на главный экран" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="90.0">
          <font>
-            <Font size="14.0" />
+            <Font name="Bookman Old Style" size="18.0" />
          </font></Button>
-      <Button fx:id="btnAddW" layoutX="297.0" layoutY="575.0" mnemonicParsing="false" onAction="#btnAddWClicked" prefHeight="27.0" prefWidth="188.0" style="-fx-background-color: #8fbc8f;" text="добавить слово к изучаемым" AnchorPane.bottomAnchor="50.0" AnchorPane.rightAnchor="15.0" />
-      <TextArea fx:id="En2" layoutX="20.0" layoutY="361.0" prefHeight="200.0" prefWidth="381.0" promptText="your word in English" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" />
-      <Button fx:id="btnChLan" layoutX="15.0" layoutY="284.0" mnemonicParsing="false" onAction="#btnChLanClicked" prefHeight="59.0" prefWidth="83.0" style="-fx-background-color: #8fbc8f;" text="⇵">
-         <font>
-            <Font size="24.0" />
-         </font>
-      </Button>
+      <Button fx:id="btnAddW" layoutX="262.0" layoutY="560.0" mnemonicParsing="false" onAction="#btnAddWClicked" prefHeight="27.0" prefWidth="223.0" style="-fx-background-color: #8fbc8f;" text="добавить слово к изучаемым" AnchorPane.bottomAnchor="63.0" AnchorPane.rightAnchor="15.0">
+               <font>
+                  <Font name="Bookman Old Style" size="14.0" />
+               </font></Button>
+            <ListView fx:id="ListEn" layoutX="16.0" layoutY="351.0" prefHeight="200.0" prefWidth="470.0" AnchorPane.leftAnchor="15.0" AnchorPane.rightAnchor="15.0" />
    </children>
 </AnchorPane>
    </children>

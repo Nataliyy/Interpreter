@@ -9,9 +9,10 @@ import java.io.OutputStream;
 import java.io.OutputStreamWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 import java.util.Scanner;
 
 @Service
@@ -30,28 +31,25 @@ public class CardService {
         return repository;
     }
 
-//    public List<Card> getAllCards() {
-//        return this.repository.findAll();
-//    }
-//
-//    public Card getCard(String RuWord) {
-//        return this.repository.findByWord(RuWord).get(0);
-//    }
 
     public Card addCard(Card c) {
         return this.repository.save(c);
     }
 
+    public void removeCard(Card c) {
+        this.repository.delete(c);
+    }
+
     public Card markViewed(Card c, boolean answeredCorrect) {
-        // TODO: if card was shown, we need to remember answer and if it was answered correctly
+        // TODO: посчитать количество  раз, когда карточка появилась на экране
         Date d = new Date();
         // c.answers.add
         //d.
         return c;
     }
 
-    public String[] translate(String s) {
-
+    public ArrayList<String> translate(String s, boolean frRtoE) {
+        ArrayList<String> translations = new ArrayList<>();
         try {
 
             URL url = new URL("https://api.reverso.net/translate/v1/translation");
@@ -60,7 +58,7 @@ public class CardService {
             conn.setRequestProperty("Accept", "*/*");
             conn.setRequestProperty("Connection", "keep-alive");
             conn.setRequestProperty("User-Agent", "Firefox 31");
-            conn.setRequestProperty("Content-Type", "application/json");
+            conn.setRequestProperty("Content-Type", "application/json; charset=utf-8");
 
             conn.setDoOutput(true);
             conn.setRequestMethod("POST");
@@ -68,7 +66,7 @@ public class CardService {
             OutputStreamWriter osw = new OutputStreamWriter(os, "UTF-8");
             osw.write("{\n" +
                     "  format: 'text',\n" +
-                    "  from: 'rus',\n" +
+                    "  from:  '" + (frRtoE ? "rus" : "eng") + "',\n" +
                     "  input: '" + s + "',\n" +
                     "  options: {\n" +
                     "    contextResults: true,\n" +
@@ -76,7 +74,7 @@ public class CardService {
                     "    origin: 'reversomobile',\n" +
                     "    sentenceSplitter: false,\n" +
                     "  },\n" +
-                    "  to: 'eng',\n" +
+                    "  to: '" + (frRtoE ? "eng" : "rus") + "',\n" +
                     "}");
             osw.flush();
             osw.close();
@@ -91,7 +89,7 @@ public class CardService {
             } else {
 
                 String inline = "";
-                Scanner scanner = new Scanner(conn.getInputStream());
+                Scanner scanner = new Scanner(conn.getInputStream(), StandardCharsets.UTF_8);
                 while (scanner.hasNext()) {
                     inline += scanner.nextLine();
                 }
@@ -99,11 +97,10 @@ public class CardService {
                 JSONObject response = new JSONObject(inline);
 
                 System.out.println(inline);
-                JSONArray translations = response.getJSONArray("translation");
+                JSONArray translations2 = response.getJSONObject("contextResults").getJSONArray("results");
 
-                for (Object translation:
-                     translations) {
-                    System.out.println(translation);
+                for (int i = 0; i < translations2.length(); i++) {
+                    translations.add(translations2.getJSONObject(i).getString("translation"));
                 }
             }
 
@@ -113,7 +110,7 @@ public class CardService {
             e.printStackTrace();
         }
 
-        return new String[]{};
+        return translations;
 
     }
 
