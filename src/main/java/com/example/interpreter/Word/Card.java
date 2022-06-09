@@ -5,6 +5,7 @@ import javax.persistence.*;
 @Entity
 
 public class Card {
+    public int timesViewed;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;

@@ -62,5 +62,14 @@ public class ControllerTr {
         });
 
     }
+
+    public void btnChLanClicked(ActionEvent actionEvent) {
+        fromRussianToEnglish = !fromRussianToEnglish;
+        if (fromRussianToEnglish) {
+            this.Ru1.setPromptText("Введите слово для перевода");
+        } else {
+            this.Ru1.setPromptText("Enter a word to translate");
+        }
+    }
 }
 
