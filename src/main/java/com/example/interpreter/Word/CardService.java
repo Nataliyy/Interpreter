@@ -27,8 +27,12 @@ public class CardService {
 
     }
 
-    public CardRepository getRepository() {
-        return repository;
+    public List<Card> getCards() {
+        return repository.findAll();
+    }
+
+    public List<Card> getCardsToLearn() {
+        return repository.getCardsToLearn();
     }
 
 
@@ -40,12 +44,9 @@ public class CardService {
         this.repository.delete(c);
     }
 
-    public Card markViewed(Card c, boolean answeredCorrect) {
-        // TODO: посчитать количество  раз, когда карточка появилась на экране
-        Date d = new Date();
-        // c.answers.add
-        //d.
-        return c;
+    public Card markViewed(Card c) {
+        c.timesViewed++;
+        return this.repository.save(c);
     }
 
     public ArrayList<String> translate(String s, boolean frRtoE) {

@@ -4,6 +4,7 @@ import com.example.interpreter.Application;
 import com.example.interpreter.Word.Card;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.SubScene;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
@@ -17,8 +18,12 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
-public class ControllerTable {
+public class ControllerTable implements Initializable {
     public VBox root;
+    public TableColumn TableRuWord;
+    public TableColumn TableEnWord;
+    public TableView WTable;
+    public Button btnDelW;
 
     public void btnHomeClicked(ActionEvent actionEvent) throws IOException {
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Menu.fxml"));

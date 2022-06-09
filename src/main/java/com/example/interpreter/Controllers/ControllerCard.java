@@ -29,7 +29,6 @@ public class ControllerCard {
 
     }
 
-
     //далее действия на сцене с самой игрой
 }
 

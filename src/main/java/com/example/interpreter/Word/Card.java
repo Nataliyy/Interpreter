@@ -10,18 +10,18 @@ public class Card {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    private String EnWord;
-    private String RuWord;
-    private String Transcription;
+    public String EnWord;
+    public String RuWord;
+    private boolean fromRtoE = true;
 
     public Card() {
 
     }
 
-    public Card(String EnWord, String RuWord, String Transcription) {
+    public Card(String EnWord, String RuWord, boolean fromRtoE) {
         this.EnWord = EnWord;
         this.RuWord = RuWord;
-        this.Transcription = Transcription;
+        this.fromRtoE = fromRtoE;
 
     }
 

@@ -1,6 +1,11 @@
 package com.example.interpreter.Controllers;
 
 import com.example.interpreter.Application;
+import com.example.interpreter.Word.Card;
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -15,7 +20,7 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 
-public class ControllerTr {
+public class ControllerTr implements Initializable {
     public VBox root;
     public TextArea Ru1;
     public ListView ListEn;
@@ -30,15 +35,19 @@ public class ControllerTr {
 
     }
 
+    boolean fromRussianToEnglish = true;
+
     public void btnTrrClicked(ActionEvent actionEvent) { // перевод с рус на англ
         btnAddW.setDisable(true);
         String word = Ru1.getText();
         this.translations.clear();
-        this.translations.addAll(Application.cardService.translate(word, false));
+        this.translations.addAll(Application.cardService.translate(word, fromRussianToEnglish));
     }
 
     public void btnAddWClicked(ActionEvent actionEvent) { // кнопка добавить слово к изучаемым
-
+        Card card = new Card(this.currentTranslation, Ru1.getText(), fromRussianToEnglish);
+        Application.cardService.addCard(card);
+        btnAddW.setDisable(true);
     }
 
     final ObservableList<String> translations = FXCollections.observableArrayList();

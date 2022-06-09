@@ -23,11 +23,6 @@ public class Application extends javafx.application.Application {
 
         context = SpringApplication.run(Application.class);
         cardService = context.getBean(CardService.class);
-        ArrayList<String> Tr = cardService.translate("apple", false );
-        for (int i = 0; i < Tr.size(); i++) {
-            System.out.println(Tr.get(i));
-        }
-
 
         FXMLLoader fxmlLoader = new FXMLLoader(Application.class.getResource("Menu.fxml"));
         Scene scene = new Scene(fxmlLoader.load(), 500, 650);
@@ -39,7 +34,7 @@ public class Application extends javafx.application.Application {
     @Override
     public void stop() throws Exception {
         super.stop();
-        //context.close();
+        context.close();
     }
 
     public static void main(String[] args) {
