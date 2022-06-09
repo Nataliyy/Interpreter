@@ -4,21 +4,21 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox fx:id="root" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.interpreter.Controllers.ControllerCardGame">
+<VBox fx:id="root" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.interpreter.Controllers.ControllerCardGame">
    <children>
-      <AnchorPane prefHeight="659.0" prefWidth="500.0" style="-fx-background-color: cef0c9;">
+      <AnchorPane prefHeight="650.0" prefWidth="500.0" style="-fx-background-color: cef0c9;">
          <children>
-            <Button fx:id="btnTurnOver" layoutX="100.0" layoutY="162.0" mnemonicParsing="false" onAction="#btnTurnOverClicked" style="-fx-background-color: #8fbc8f;" text="перевернуть" AnchorPane.leftAnchor="100.0">
+            <Button fx:id="btnTurnOver" layoutX="80.0" layoutY="166.0" mnemonicParsing="false" onAction="#btnTurnOverClicked" style="-fx-background-color: #8fbc8f;" text="перевернуть" AnchorPane.leftAnchor="80.0">
                <font>
                   <Font name="Bookman Old Style" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="btnNext" layoutX="222.0" layoutY="450.0" mnemonicParsing="false" onAction="#btnNextClicked" style="-fx-background-color: #8fbc8f;" text="следующее слово" AnchorPane.rightAnchor="100.0">
+            <Button fx:id="btnNext" layoutX="238.0" layoutY="447.0" mnemonicParsing="false" onAction="#btnNextClicked" style="-fx-background-color: #8fbc8f;" text="следующее слово" AnchorPane.rightAnchor="80.0">
                <font>
                   <Font name="Bookman Old Style" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="btnHome" layoutX="150.0" layoutY="597.0" mnemonicParsing="false" onAction="#btnHomeСlicked" prefHeight="39.0" prefWidth="214.0" style="-fx-background-color: #8fbc8f;" text="на главный экран" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="90.0">
+            <Button fx:id="btnHome" layoutX="90.0" layoutY="606.0" mnemonicParsing="false" onAction="#btnHomeСlicked" prefHeight="39.0" prefWidth="214.0" style="-fx-background-color: #8fbc8f;" text="на главный экран" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="90.0" AnchorPane.rightAnchor="90.0">
                <font>
                   <Font name="Bookman Old Style" size="18.0" />
                </font>
@@ -28,7 +28,7 @@
                   <Font name="Bookman Old Style" size="36.0" />
                </font>
             </Label>
-            <TextField fx:id="CardField" alignment="CENTER" disable="true" layoutX="100.0" layoutY="235.0" prefHeight="180.0" prefWidth="301.0" style="-fx-background-color: #ffffff;">
+            <TextField fx:id="CardField" alignment="CENTER" disable="true" layoutX="100.0" layoutY="235.0" prefHeight="180.0" prefWidth="301.0" style="-fx-background-color: #ffffff;" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0">
                <font>
                   <Font name="Bookman Old Style" size="24.0" />
                </font>

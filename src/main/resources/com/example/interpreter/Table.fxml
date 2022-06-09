@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox fx:id="root" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.interpreter.Controllers.ControllerTable">
+<VBox fx:id="root" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.interpreter.Controllers.ControllerTable">
     <children>
         <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="500.0" style="-fx-background-color: cef0c9;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1">
             <children>
@@ -26,7 +26,7 @@
               </columns>
             </TableView>
                </children></StackPane>
-            <Button fx:id="btnDelW" layoutX="369.0" layoutY="566.0" mnemonicParsing="false" onAction="#btnDelWClicked" style="-fx-background-color: #8fbc8f;" text="удалить слово">
+            <Button fx:id="btnDelW" layoutX="369.0" layoutY="566.0" mnemonicParsing="false" onAction="#btnDelWClicked" style="-fx-background-color: #8fbc8f;" text="удалить слово" AnchorPane.rightAnchor="15.0">
                <font>
                   <Font name="Bookman Old Style" size="14.0" />
                </font></Button>

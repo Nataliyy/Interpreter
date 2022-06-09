@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox fx:id="root" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.interpreter.Controllers.ControllerTime">
+<VBox fx:id="root" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.interpreter.Controllers.ControllerTime">
    <children>
       <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="650.0" prefWidth="500.0" style="-fx-background-color: cef0c9;" VBox.vgrow="ALWAYS">
          <children>
@@ -48,7 +48,7 @@
             <Font name="Bookman Old Style" size="36.0" />
          </font>
       </Label>
-            <Label layoutX="108.0" layoutY="68.0" text="нужно повторять слова">
+            <Label alignment="CENTER" layoutX="108.0" layoutY="68.0" text="нужно повторять слова" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
                <font>
                   <Font name="Bookman Old Style" size="24.0" />
                </font>
